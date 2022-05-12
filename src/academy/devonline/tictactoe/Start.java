@@ -20,7 +20,7 @@ package academy.devonline.tictactoe;
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class Launcher {
+public class Start {
     public static void main(String[] args) {
 
 
