@@ -16,22 +16,9 @@
 
 package academy.devonline.tictactoe;
 
-
-import java.util.Random;
-
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class Start {
-    public static void main(String[] args) {
-        TicTacToeGame ticTacToeGame = new TicTacToeGame(
-                new BoardPrint(),
-                new MoveAl(),
-                new PlayerMove(),
-                new CheckWinner(),
-                new CheckDraw());
-        ticTacToeGame.tictactoePlay();
-
-    }
+public class PlayingField {
 }
