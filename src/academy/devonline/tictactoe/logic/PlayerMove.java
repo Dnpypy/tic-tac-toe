@@ -14,16 +14,15 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.logic;
+
+import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class BoardPrint {
-    public void showTablePrint() {
-    }
-
-    public void currentStateField(PlayingField playingField) {
+public class PlayerMove {
+    public void toMove(PlayingField playingField) {
     }
 }

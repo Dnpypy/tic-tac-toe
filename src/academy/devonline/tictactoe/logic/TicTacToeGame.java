@@ -14,7 +14,9 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.logic;
+
+import academy.devonline.tictactoe.model_data.PlayingField;
 
 import java.util.Random;
 

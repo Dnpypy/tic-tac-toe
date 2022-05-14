@@ -14,11 +14,16 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.logic;
+
+import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class PlayingField {
+public class CheckDraw {
+    public boolean isItDraw(PlayingField playingField) {
+        return false;
+    }
 }

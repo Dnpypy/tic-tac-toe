@@ -14,13 +14,11 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.model_data;
 
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class MoveAl {
-    public void toMove(PlayingField playingField) {
-    }
+public class PlayingField {
 }

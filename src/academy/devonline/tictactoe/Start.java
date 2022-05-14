@@ -17,7 +17,8 @@
 package academy.devonline.tictactoe;
 
 
-import java.util.Random;
+import academy.devonline.tictactoe.logic.BoardPrint;
+import academy.devonline.tictactoe.logic.*;
 
 /**
  * @author Dnpypy

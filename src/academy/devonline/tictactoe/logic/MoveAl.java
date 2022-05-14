@@ -14,19 +14,15 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.logic;
+
+import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class CheckWinner {
-    public boolean isUserWin(PlayingField playingField) {
-
-        return false;
-    }
-
-    public boolean isAlWin(PlayingField playingField) {
-        return false;
+public class MoveAl {
+    public void toMove(PlayingField playingField) {
     }
 }
