@@ -21,4 +21,44 @@ package academy.devonline.tictactoe.model_data;
  * @link http://devonline.academy/java
  */
 public class PlayingField {
+
+//    private final char EMPTY = ' ';
+//    private final char ZERO = 'O';
+//    private final char CROSS = 'X';
+
+    private final char[][] zeroCrossTable = {
+            {' ', ' ', ' '},
+            {' ', ' ', ' '},
+            {' ', ' ', ' '}
+    };
+
+    /**
+     * проверка символа на пустоту
+     *
+     * @param cellTable символ ячейки таблицы класса CellTable
+     * @return результат true or false
+     */
+    public boolean isCharWhitespace(final CellTable cellTable) {
+        return zeroCrossTable[cellTable.getRow()][cellTable.getCol()] == ' ';
+    }
+
+    /**
+     * Определяет какой символ записан в ячейке
+     *
+     * @param cellTable символ ячейки таблицы класса CellTable
+     *                  return символ таблицы cellTable
+     */
+    public char checkGetSymbol(final CellTable cellTable) {
+        return zeroCrossTable[cellTable.getRow()][cellTable.getCol()];
+    }
+
+    /**
+     * Обновление ячейки новым значением
+     *
+     * @param cellTable ячейка для записи
+     * @param character для записи
+     */
+    public void setTableSymbol(final CellTable cellTable, final Character character) {
+        zeroCrossTable[cellTable.getRow()][cellTable.getCol()] = character;
+    }
 }
