@@ -22,6 +22,10 @@ package academy.devonline.tictactoe.model_data;
  */
 public class CellTable {
 
+    private final int row;
+
+    private final int col;
+
     public int getRow() {
         return row;
     }
@@ -35,9 +39,7 @@ public class CellTable {
         this.col = col;
     }
 
-    private final int row;
 
-    private final int col;
 
     @Override
     public String toString() {

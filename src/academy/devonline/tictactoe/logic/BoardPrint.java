@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
@@ -24,8 +25,26 @@ import academy.devonline.tictactoe.model_data.PlayingField;
  */
 public class BoardPrint {
     public void showTablePrint() {
+        System.out.println("""
+                -------------
+                | 7 | 8 | 9 |
+                -------------
+                | 4 | 5 | 6 |
+                -------------
+                | 1 | 2 | 3 |
+                -------------""");
     }
 
-    public void currentStateField(PlayingField playingField) {
+    public void currentStateField(final PlayingField playingField) {
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("-------------");
+            for (int j = 0; j < 3; j++) {
+                System.out.print("| " + playingField.checkGetSymbol(new CellTable(i, j)) + " ");
+            }
+            System.out.println("|");
+        }
+        System.out.println("-------------");
+
     }
 }
