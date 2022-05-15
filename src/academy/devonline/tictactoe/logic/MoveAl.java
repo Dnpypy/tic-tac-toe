@@ -16,13 +16,38 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
+
+import java.util.Random;
 
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
+
 public class MoveAl {
+
+
+    /**
+     * Случайный ход компьютера и проверка на пустую ячейку
+     * Если пустая ячейка, записываю в ячейку символ 'O'
+     *
+     * @param playingField объект игровое поле
+     */
+
     public void toMove(PlayingField playingField) {
+        final Random random = new Random();
+
+        while (true) {
+            final int row = random.nextInt(3);
+            final int col = random.nextInt(3);
+            final CellTable randomCellTable = new CellTable(row, col);
+
+            if (playingField.isCharWhitespace(randomCellTable)) {
+                playingField.setTableSymbol(randomCellTable, 'O');
+                return;
+            }
+        }
     }
 }

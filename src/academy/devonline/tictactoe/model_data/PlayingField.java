@@ -24,10 +24,6 @@ import java.util.Arrays;
  */
 public class PlayingField {
 
-//    private final char EMPTY = ' ';
-//    private final char ZERO = 'O';
-//    private final char CROSS = 'X';
-
     private final char[][] zeroCrossTable = {
             {' ', ' ', ' '},
             {' ', ' ', ' '},
@@ -58,7 +54,7 @@ public class PlayingField {
      * Обновление ячейки новым значением
      *
      * @param cellTable ячейка для записи
-     * @param character для записи
+     * @param character символ для записи
      */
     public void setTableSymbol(final CellTable cellTable, final Character character) {
         zeroCrossTable[cellTable.getRow()][cellTable.getCol()] = character;
