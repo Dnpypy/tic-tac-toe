@@ -39,4 +39,11 @@ public class CellTable {
 
     private final int col;
 
+    @Override
+    public String toString() {
+        return "CellTable{" +
+                "row=" + row +
+                ", col=" + col +
+                '}';
+    }
 }

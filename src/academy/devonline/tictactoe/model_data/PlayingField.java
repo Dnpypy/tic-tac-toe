@@ -16,6 +16,8 @@
 
 package academy.devonline.tictactoe.model_data;
 
+import java.util.Arrays;
+
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
@@ -61,4 +63,18 @@ public class PlayingField {
     public void setTableSymbol(final CellTable cellTable, final Character character) {
         zeroCrossTable[cellTable.getRow()][cellTable.getCol()] = character;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("PlayingField{");
+        for (int i = 0; i < zeroCrossTable.length; i++) {
+            sb.append(Arrays.toString(zeroCrossTable[i]));
+            if (i < zeroCrossTable.length - 1) {
+                sb.append(";");
+            }
+        }
+        sb.append('}');
+        return sb.toString();
+    }
+
 }
