@@ -61,7 +61,7 @@ public class PlayerMove {
      * @param character символ
      * @return истину если символ входит в диапазон
      */
-    public static boolean testCh(char character) {
+    public static boolean checkCharacter(char character) {
         char c = '0';
         while (c <= '9') {
             if (c == character) {
@@ -85,7 +85,7 @@ public class PlayerMove {
             String s = sc.nextLine();
             if (s.length() == 1) {
                 char ch = s.charAt(0);
-                if (testCh(ch)) {
+                if (checkCharacter(ch)) {
                     for (int i = 0; i < auxiliaryField.length; i++) {
                         for (int j = 0; j < auxiliaryField[0].length; j++) {
                             if (auxiliaryField[i][j] == ch) {
