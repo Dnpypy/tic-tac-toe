@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
@@ -24,11 +25,57 @@ import academy.devonline.tictactoe.model_data.PlayingField;
  */
 public class CheckWinner {
     public boolean isUserWin(PlayingField playingField) {
-
-        return false;
+        return isWin(playingField, 'X');
     }
 
     public boolean isAlWin(PlayingField playingField) {
+        return isWin(playingField, 'O');
+    }
+
+    // checkingStatus
+    private static boolean isWin(PlayingField playingField, char character) {
+        if (isWinRow(playingField, character)) return true;
+        if (isWinColumn(playingField, character)) return true;
+        if (isWinMainDiagonal(playingField, character)) return true;
+        return isWinSecondDiagonal(playingField, character);
+    }
+
+    private static boolean isWinMainDiagonal(PlayingField playingField, char character) {
+
+        return playingField.checkGetSymbol(new CellTable(0, 0)) == playingField.checkGetSymbol(new CellTable(1, 1))
+                && playingField.checkGetSymbol(new CellTable(1, 1)) == playingField.checkGetSymbol(new CellTable(2, 2))
+                && playingField.checkGetSymbol(new CellTable(2, 2)) == character;
+    }
+
+    private static boolean isWinSecondDiagonal(PlayingField playingField, char character) {
+
+        return playingField.checkGetSymbol(new CellTable(2, 0)) == playingField.checkGetSymbol(new CellTable(1, 1))
+                && playingField.checkGetSymbol(new CellTable(1, 1)) == playingField.checkGetSymbol(new CellTable(0, 2))
+                && playingField.checkGetSymbol(new CellTable(0, 2)) == character;
+    }
+
+    private static boolean isWinColumn(PlayingField playingField, char character) {
+        for (int i = 0; i < 3; i++) {
+            if (playingField.checkGetSymbol(new CellTable(0, i)) == playingField.checkGetSymbol(new CellTable(1, i))
+                    && playingField.checkGetSymbol(new CellTable(1, i)) == playingField.checkGetSymbol(new CellTable(2, i))
+                    && playingField.checkGetSymbol(new CellTable(2, i)) == character) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+
+
+    private static boolean isWinRow(PlayingField playingField, char character) {
+        for (int i = 0; i < 3; i++) {
+            if (playingField.checkGetSymbol(new CellTable(i, 0)) == playingField.checkGetSymbol(new CellTable(i, 1))
+                    && playingField.checkGetSymbol(new CellTable(i, 1)) == playingField.checkGetSymbol(new CellTable(i, 2))
+                    && playingField.checkGetSymbol(new CellTable(i, 2)) == character) {
+                return true;
+            }
+
+        }
         return false;
     }
 }
