@@ -22,8 +22,22 @@ import academy.devonline.tictactoe.model_data.PlayingField;
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class CheckDraw {
-    public boolean isItDraw(PlayingField playingField) {
+public class CellDraw {
+    public boolean CellFilled(PlayingField playingField) {
+        if (playingField.) ;
         return false;
+    }
+
+    public static boolean isBoardFull(char[][] arrChar) {
+        boolean isFull = true;
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (arrChar[i][j] == ' ') {
+                    isFull = false;
+                }
+            }
+        }
+        return isFull;
     }
 }

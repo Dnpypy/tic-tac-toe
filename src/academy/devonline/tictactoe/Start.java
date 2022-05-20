@@ -31,7 +31,7 @@ public class Start {
                 new MoveAl(),
                 new PlayerMove(),
                 new CheckWinner(),
-                new CheckDraw());
+                new CellDraw());
         ticTacToeGame.tictactoePlay();
 
     }

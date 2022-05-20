@@ -30,18 +30,18 @@ public class TicTacToeGame {
     private final MoveAl moveAl;
     private final PlayerMove playerMove;
     private final CheckWinner checkWinner;
-    private final CheckDraw checkDraw;
+    private final CellDraw cellDraw;
 
     public TicTacToeGame(final BoardPrint boardPrint,
                          final MoveAl moveAl,
                          final PlayerMove playerMove,
                          final CheckWinner checkWinner,
-                         final CheckDraw checkDraw) {
+                         final CellDraw cellDraw) {
         this.boardPrint = boardPrint;
         this.moveAl = moveAl;
         this.playerMove = playerMove;
         this.checkWinner = checkWinner;
-        this.checkDraw = checkDraw;
+        this.cellDraw = cellDraw;
     }
 
 
@@ -67,7 +67,7 @@ public class TicTacToeGame {
                 break;
             }
 
-            if (checkDraw.isItDraw(playingField)) {
+            if (cellDraw.isItDraw(playingField)) {
                 System.out.println("SORRY DRAW!");
                 break;
             }
@@ -80,7 +80,7 @@ public class TicTacToeGame {
                 break;
             }
 
-            if (checkDraw.isItDraw(playingField)) {
+            if (cellDraw.isItDraw(playingField)) {
                 System.out.println("SORRY DRAW!");
                 break;
             }
