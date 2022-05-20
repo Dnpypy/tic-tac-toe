@@ -14,38 +14,22 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.model_data;
+package academy.devonline.tictactoe;
+
+import academy.devonline.tictactoe.model_data.CellTable;
 
 /**
  * @author Dnpypy
  * @link https://www.udemy.com/course/java-junior-developer/
  */
-public class CellTable {
-
-    private final int row;
-
-    private final int col;
-
-    public int getRow() {
-        return row;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    public CellTable(final int row, final int col) {
-        this.row = row;
-        this.col = col;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "CellTable{" +
-                "row=" + row +
-                ", col=" + col +
-                '}';
+public class Test {
+    public static void main(String[] args) {
+        int val = 3 - '0' - 1;
+        System.out.println(3 - '0');
+        System.out.println(val);
+        int a = val / 3;
+        int b = val % 3;
+        System.out.println((char) a);
+        System.out.println((char) b);
     }
 }

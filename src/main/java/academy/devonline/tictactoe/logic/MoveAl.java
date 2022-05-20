@@ -34,7 +34,7 @@ public class MoveAl {
      * Если пустая ячейка, записываю в ячейку символ 'O'
      *
      * @param playingField объект игровое поле
-     * Если игровое поле заполнено то выход из цикла
+     *                     Если игровое поле заполнено то выход из цикла
      */
 
     public void toMove(PlayingField playingField) {
