@@ -20,6 +20,7 @@ package academy.devonline.tictactoe;
 import academy.devonline.tictactoe.logic.BoardPrint;
 import academy.devonline.tictactoe.logic.*;
 import academy.devonline.tictactoe.logic.ConverterCell;
+import academy.devonline.tictactoe.logic.keypad.CellNumKeyTerminal;
 import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
 
 /**
@@ -28,7 +29,7 @@ import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
  */
 public class Start {
     public static void main(String[] args) {
-        final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
+        final ConverterCell converterCell = new CellNumKeyTerminal();
 
         TicTacToeGame ticTacToeGame = new TicTacToeGame(
                 new BoardPrint(converterCell),
