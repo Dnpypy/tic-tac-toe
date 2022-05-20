@@ -67,7 +67,7 @@ public class TicTacToeGame {
                 break;
             }
 
-            if (cellDraw.isItDraw(playingField)) {
+            if (cellDraw.CellFilled(playingField)) {
                 System.out.println("SORRY DRAW!");
                 break;
             }
@@ -80,7 +80,7 @@ public class TicTacToeGame {
                 break;
             }
 
-            if (cellDraw.isItDraw(playingField)) {
+            if (cellDraw.CellFilled(playingField)) {
                 System.out.println("SORRY DRAW!");
                 break;
             }

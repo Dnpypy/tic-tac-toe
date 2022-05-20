@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
@@ -23,21 +24,23 @@ import academy.devonline.tictactoe.model_data.PlayingField;
  * @link http://devonline.academy/java
  */
 public class CellDraw {
-    public boolean CellFilled(PlayingField playingField) {
-        if (playingField.) ;
-        return false;
-    }
 
-    public static boolean isBoardFull(char[][] arrChar) {
-        boolean isFull = true;
+//    private CheckWinner checkWinner;
+//
+//    public CellDraw(CheckWinner checkWinner) {
+//        this.checkWinner = checkWinner;
+//    }
 
+    public boolean CellFilled(final PlayingField playingField) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (arrChar[i][j] == ' ') {
-                    isFull = false;
+                if (playingField.isCharWhitespace(new CellTable(i, j))) {
+                    return false;
                 }
             }
         }
-        return isFull;
+        return true;
     }
+
+
 }
