@@ -19,6 +19,8 @@ package academy.devonline.tictactoe;
 
 import academy.devonline.tictactoe.logic.BoardPrint;
 import academy.devonline.tictactoe.logic.*;
+import academy.devonline.tictactoe.logic.ConverterCell;
+import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
 
 /**
  * @author Dnpypy
@@ -26,7 +28,7 @@ import academy.devonline.tictactoe.logic.*;
  */
 public class Start {
     public static void main(String[] args) {
-        final ConverterCell converterCell = new ConverterCell();
+        final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
 
         TicTacToeGame ticTacToeGame = new TicTacToeGame(
                 new BoardPrint(converterCell),

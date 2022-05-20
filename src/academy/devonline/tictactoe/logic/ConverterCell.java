@@ -22,42 +22,9 @@ import academy.devonline.tictactoe.model_data.CellTable;
  * @author Dnpypy
  * @link https://www.udemy.com/course/java-junior-developer/
  */
-public class ConverterCell {
+public interface ConverterCell {
 
-    /**
-     * вспомогательное поле
-     */
-    private final char[][] auxiliaryField = {
-            {'7', '8', '9'},
-            {'4', '5', '6'},
-            {'1', '2', '3'}
-    };
+    CellTable numbTocell(char numb);
 
-    /**
-     * Преобразовывает число в ячейку
-     *
-     * @param numb число
-     * @return null или ячейку
-     */
-    public CellTable numbTocell(final char numb) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (auxiliaryField[i][j] == numb) {
-                    return new CellTable(i, j);
-                }
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Преобразования ячейку в число
-     *
-     * @param cellTable ячейка
-     *                  return число
-     */
-    public char cellToNumb(final CellTable cellTable) {
-        return auxiliaryField[cellTable.getRow()][cellTable.getCol()];
-    }
-
+    char cellToNumb(CellTable cellTable);
 }

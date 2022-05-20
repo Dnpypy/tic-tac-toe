@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
@@ -30,6 +31,7 @@ public class BoardPrint {
     public BoardPrint(ConverterCell converterCell) {
         this.converterCell = converterCell;
     }
+
 
     public void showTablePrint() {
         for (int i = 0; i < 3; i++) {

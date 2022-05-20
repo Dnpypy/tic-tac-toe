@@ -16,6 +16,7 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
@@ -33,6 +34,7 @@ public class PlayerMove {
     public PlayerMove(ConverterCell converterCell) {
         this.converterCell = converterCell;
     }
+
 
     /**
      * выполняет ход пользователя
