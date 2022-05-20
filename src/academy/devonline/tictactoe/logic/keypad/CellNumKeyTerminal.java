@@ -42,14 +42,8 @@ public class CellNumKeyTerminal implements ConverterCell {
      */
     @Override
     public CellTable numbTocell(final char numb) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (auxiliaryField[i][j] == numb) {
-                    return new CellTable(i, j);
-                }
-            }
-        }
-        return null;
+        final int val = numb - '0' - 1;
+        return new CellTable(val / 3, val % 3);
     }
 
     /**
@@ -60,6 +54,6 @@ public class CellNumKeyTerminal implements ConverterCell {
      */
     @Override
     public char cellToNumb(final CellTable cellTable) {
-        return auxiliaryField[cellTable.getRow()][cellTable.getCol()];
+        return (char) ('0' + (cellTable.getRow() * 3 + cellTable.getCol() + 1));
     }
 }
