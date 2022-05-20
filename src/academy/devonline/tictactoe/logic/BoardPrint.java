@@ -21,7 +21,7 @@ import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
- * @link http://devonline.academy/java
+ * @link https://www.udemy.com/course/java-junior-developer/
  */
 public class BoardPrint {
 

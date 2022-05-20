@@ -14,38 +14,13 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.model_data;
+package academy.devonline.tictactoe.keypad;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
+ * @link http://devonline.academy/java
  */
-public class CellTable {
-
-    private final int row;
-
-    private final int col;
-
-    public int getRow() {
-        return row;
-    }
-
-    public int getCol() {
-        return col;
-    }
-
-    public CellTable(final int row, final int col) {
-        this.row = row;
-        this.col = col;
-    }
+public interface CellNumberConverter {
 
 
-
-    @Override
-    public String toString() {
-        return "CellTable{" +
-                "row=" + row +
-                ", col=" + col +
-                '}';
-    }
 }

@@ -22,7 +22,7 @@ import academy.devonline.tictactoe.logic.*;
 
 /**
  * @author Dnpypy
- * @link http://devonline.academy/java
+ * @link https://www.udemy.com/course/java-junior-developer/
  */
 public class Start {
     public static void main(String[] args) {

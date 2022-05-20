@@ -22,7 +22,7 @@ import java.util.Random;
 
 /**
  * @author Dnpypy
- * @link http://devonline.academy/java
+ * @link https://www.udemy.com/course/java-junior-developer/
  */
 public class TicTacToeGame {
 
