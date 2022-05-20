@@ -25,12 +25,6 @@ import academy.devonline.tictactoe.model_data.PlayingField;
  */
 public class CellDraw {
 
-//    private CheckWinner checkWinner;
-//
-//    public CellDraw(CheckWinner checkWinner) {
-//        this.checkWinner = checkWinner;
-//    }
-
     public boolean CellFilled(final PlayingField playingField) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {

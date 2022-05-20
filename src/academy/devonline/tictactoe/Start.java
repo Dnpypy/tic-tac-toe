@@ -26,10 +26,12 @@ import academy.devonline.tictactoe.logic.*;
  */
 public class Start {
     public static void main(String[] args) {
+        final ConverterCell converterCell = new ConverterCell();
+
         TicTacToeGame ticTacToeGame = new TicTacToeGame(
-                new BoardPrint(),
+                new BoardPrint(converterCell),
                 new MoveAl(),
-                new PlayerMove(),
+                new PlayerMove(converterCell),
                 new CheckWinner(),
                 new CellDraw());
         ticTacToeGame.tictactoePlay();

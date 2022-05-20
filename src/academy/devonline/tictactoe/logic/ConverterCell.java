@@ -17,41 +17,47 @@
 package academy.devonline.tictactoe.logic;
 
 import academy.devonline.tictactoe.model_data.CellTable;
-import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
  * @link http://devonline.academy/java
  */
-public class BoardPrint {
+public class ConverterCell {
 
-    private final ConverterCell converterCell;
+    /**
+     * вспомогательное поле
+     */
+    private final char[][] auxiliaryField = {
+            {'7', '8', '9'},
+            {'4', '5', '6'},
+            {'1', '2', '3'}
+    };
 
-    public BoardPrint(ConverterCell converterCell) {
-        this.converterCell = converterCell;
-    }
-
-    public void showTablePrint() {
+    /**
+     * Преобразовывает число в ячейку
+     *
+     * @param numb число
+     * @return null или ячейку
+     */
+    public CellTable numbTocell(final char numb) {
         for (int i = 0; i < 3; i++) {
-            System.out.println("-------------");
             for (int j = 0; j < 3; j++) {
-                System.out.print("| " + converterCell.cellToNumb(new CellTable(i, j)) + " ");
+                if (auxiliaryField[i][j] == numb) {
+                    return new CellTable(i, j);
+                }
             }
-            System.out.println("|");
         }
-        System.out.println("-------------");
+        return null;
     }
 
-    public void currentStateField(final PlayingField playingField) {
-
-        for (int i = 0; i < 3; i++) {
-            System.out.println("-------------");
-            for (int j = 0; j < 3; j++) {
-                System.out.print("| " + playingField.checkGetSymbol(new CellTable(i, j)) + " ");
-            }
-            System.out.println("|");
-        }
-        System.out.println("-------------");
-
+    /**
+     * Преобразования ячейку в число
+     *
+     * @param cellTable ячейка
+     *                  return число
+     */
+    public char cellToNumb(final CellTable cellTable) {
+        return auxiliaryField[cellTable.getRow()][cellTable.getCol()];
     }
+
 }

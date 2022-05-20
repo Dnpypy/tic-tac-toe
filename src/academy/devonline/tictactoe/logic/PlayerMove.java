@@ -27,14 +27,12 @@ import java.util.Scanner;
  */
 public class PlayerMove {
 
-    /**
-     * вспомогательное поле
-     */
-    private final char[][] auxiliaryField = {
-            {'7', '8', '9'},
-            {'4', '5', '6'},
-            {'1', '2', '3'}
-    };
+
+    private final ConverterCell converterCell;
+
+    public PlayerMove(ConverterCell converterCell) {
+        this.converterCell = converterCell;
+    }
 
     /**
      * выполняет ход пользователя
@@ -86,13 +84,7 @@ public class PlayerMove {
             if (s.length() == 1) {
                 char ch = s.charAt(0);
                 if (checkCharacter(ch)) {
-                    for (int i = 0; i < auxiliaryField.length; i++) {
-                        for (int j = 0; j < auxiliaryField[0].length; j++) {
-                            if (auxiliaryField[i][j] == ch) {
-                                return new CellTable(i, j);
-                            }
-                        }
-                    }
+                    return converterCell.numbTocell(ch);
                 }
             }
         }
