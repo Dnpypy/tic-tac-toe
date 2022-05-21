@@ -49,7 +49,7 @@
             <filtered>true</filtered>
         </fileSet>
         <fileSet>
-            <directory>.tmp/jre18-mac</directory>
+            <directory>.tmp/jre-mac</directory>
             <outputDirectory>jre</outputDirectory>
             <includes>
                 <include>bin/java</include>
@@ -58,7 +58,7 @@
             <fileMode>755</fileMode>
         </fileSet>
         <fileSet>
-            <directory>.tmp/jre18-mac</directory>
+            <directory>.tmp/jre-mac</directory>
             <outputDirectory>jre</outputDirectory>
             <excludes>
                 <exclude>bin/java</exclude>
