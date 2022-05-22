@@ -18,16 +18,18 @@ package academy.devonline.tictactoe.model_data;
 
 import java.util.Arrays;
 
+import static academy.devonline.tictactoe.model_data.Transfers.EMPTY;
+
 /**
  * @author Dnpypy
  * @link https://www.udemy.com/course/java-junior-developer/
  */
 public class PlayingField {
 
-    private final char[][] zeroCrossTable = {
-            {' ', ' ', ' '},
-            {' ', ' ', ' '},
-            {' ', ' ', ' '}
+    private final Transfers[][] zeroCrossTable = {
+            {EMPTY, EMPTY, EMPTY},
+            {EMPTY, EMPTY, EMPTY},
+            {EMPTY, EMPTY, EMPTY}
     };
 
     /**
@@ -37,7 +39,7 @@ public class PlayingField {
      * @return результат true or false
      */
     public boolean isCharWhitespace(final CellTable cellTable) {
-        return zeroCrossTable[cellTable.getRow()][cellTable.getCol()] == ' ';
+        return zeroCrossTable[cellTable.getRow()][cellTable.getCol()] == EMPTY;
     }
 
     /**
@@ -46,7 +48,7 @@ public class PlayingField {
      * @param cellTable символ ячейки таблицы класса CellTable
      *                  return символ таблицы cellTable
      */
-    public char checkGetSymbol(final CellTable cellTable) {
+    public Transfers checkGetSymbol(final CellTable cellTable) {
         return zeroCrossTable[cellTable.getRow()][cellTable.getCol()];
     }
 
@@ -54,10 +56,10 @@ public class PlayingField {
      * Обновление ячейки новым значением
      *
      * @param cellTable ячейка для записи
-     * @param character символ для записи
+     * @param transfers символ для записи
      */
-    public void setTableSymbol(final CellTable cellTable, final Character character) {
-        zeroCrossTable[cellTable.getRow()][cellTable.getCol()] = character;
+    public void setTableSymbol(final CellTable cellTable, final Transfers transfers) {
+        zeroCrossTable[cellTable.getRow()][cellTable.getCol()] = transfers;
     }
 
     @Override

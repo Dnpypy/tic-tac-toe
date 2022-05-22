@@ -21,6 +21,8 @@ import academy.devonline.tictactoe.model_data.PlayingField;
 
 import java.util.Random;
 
+import static academy.devonline.tictactoe.model_data.Transfers.O;
+
 /**
  * @author Dnpypy
  * @link https://www.udemy.com/course/java-junior-developer/
@@ -46,7 +48,7 @@ public class MoveAl {
             final CellTable randomCellTable = new CellTable(row, col);
 
             if (playingField.isCharWhitespace(randomCellTable)) {
-                playingField.setTableSymbol(randomCellTable, 'O');
+                playingField.setTableSymbol(randomCellTable, O);
                 return;
             }
         }

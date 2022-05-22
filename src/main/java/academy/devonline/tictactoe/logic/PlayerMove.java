@@ -22,6 +22,8 @@ import academy.devonline.tictactoe.model_data.PlayingField;
 
 import java.util.Scanner;
 
+import static academy.devonline.tictactoe.model_data.Transfers.X;
+
 /**
  * @author Dnpypy
  * @link https://www.udemy.com/course/java-junior-developer/
@@ -47,7 +49,7 @@ public class PlayerMove {
         while (true) {
             final CellTable cellSymbol = userInputFromKeyboard();
             if (playingField.isCharWhitespace(cellSymbol)) {
-                playingField.setTableSymbol(cellSymbol, 'X');
+                playingField.setTableSymbol(cellSymbol, X);
                 return;
             } else {
                 System.out.println("Can't make a move, because the cell is not free! Try again!");
