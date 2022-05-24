@@ -25,10 +25,10 @@ import static academy.devonline.tictactoe.model_data.Transfers.O;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
+ * @link <a href="https://www.udemy.com/course/java-junior-developer/">java-junior-developer</a>
  */
 
-public class MoveAl {
+public class MoveAl implements MoveOn {
 
 
     /**
@@ -38,7 +38,7 @@ public class MoveAl {
      * @param playingField объект игровое поле
      *                     Если игровое поле заполнено то выход из цикла
      */
-
+    @Override
     public void toMove(PlayingField playingField) {
         final Random random = new Random();
 

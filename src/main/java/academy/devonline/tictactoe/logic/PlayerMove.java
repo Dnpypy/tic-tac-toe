@@ -27,7 +27,7 @@ import static academy.devonline.tictactoe.model_data.Transfers.X;
  * @author Dnpypy
  * @link <a href="https://www.udemy.com/course/java-junior-developer/">java-junior-developer</a>
  */
-public class PlayerMove {
+public class PlayerMove implements MoveOn {
 
 
     private final ConverterCell converterCell;
@@ -42,7 +42,9 @@ public class PlayerMove {
      * проверяет пустая ли ячейка, если пустая, то ставлю в нее кректик 'X'
      *
      * @param playingField игровое поле
+     *
      */
+    @Override
     public void toMove(PlayingField playingField) {
 
         while (true) {

@@ -22,7 +22,7 @@ import java.util.Random;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
+ * @link <a href="https://www.udemy.com/course/java-junior-developer/">java-junior-developer</a>
  */
 public class TicTacToeGame {
 
@@ -31,6 +31,7 @@ public class TicTacToeGame {
     private final PlayerMove playerMove;
     private final CheckWinner checkWinner;
     private final CellDraw cellDraw;
+
 
     public TicTacToeGame(final BoardPrint boardPrint,
                          final MoveAl moveAl,
@@ -58,33 +59,32 @@ public class TicTacToeGame {
             boardPrint.currentStateField(playingField);
         }
 
+        MoveOn[] moveOn = {playerMove, moveAl};
+
         while (true) {
-            playerMove.toMove(playingField);
-            boardPrint.currentStateField(playingField);
-
-            if (checkWinner.isUserWin(playingField)) {
-                System.out.println("YOU WIN!");
+            boolean flag = false;
+            for (final MoveOn mv : moveOn) {
+                mv.toMove(playingField);
+                if (mv instanceof PlayerMove) {
+                    boardPrint.currentStateField(playingField);
+                    if (checkWinner.isUserWin(playingField)) {
+                        System.out.println("YOU WIN!");
+                        flag = true;
+                    }
+                } else {
+                    if (checkWinner.isAlWin(playingField)) {
+                        System.out.println("COMPUTER WIN!");
+                        flag = true;
+                    }
+                }
+                if (cellDraw.CellFilled(playingField)) {
+                    System.out.println("SORRY DRAW!");
+                    break;
+                }
+            }
+            if (flag) {
                 break;
             }
-
-            if (cellDraw.CellFilled(playingField)) {
-                System.out.println("SORRY DRAW!");
-                break;
-            }
-
-            moveAl.toMove(playingField);
-            boardPrint.currentStateField(playingField);
-
-            if (checkWinner.isAlWin(playingField)) {
-                System.out.println("COMPUTER WIN!");
-                break;
-            }
-
-            if (cellDraw.CellFilled(playingField)) {
-                System.out.println("SORRY DRAW!");
-                break;
-            }
-
         }
         System.out.println("GAME OVER!");
 

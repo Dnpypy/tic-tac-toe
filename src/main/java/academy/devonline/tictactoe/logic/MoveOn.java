@@ -14,30 +14,15 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.logic;
 
-
-import academy.devonline.tictactoe.logic.BoardPrint;
-import academy.devonline.tictactoe.logic.*;
-import academy.devonline.tictactoe.logic.ConverterCell;
-import academy.devonline.tictactoe.logic.keypad.CellNumKeyTerminal;
-import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
+import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
  * @link <a href="https://www.udemy.com/course/java-junior-developer/">java-junior-developer</a>
  */
-public class Start {
-    public static void main(String[] args) {
-        final ConverterCell converterCell = new CellNumKeyTerminal();
+public interface MoveOn {
 
-        TicTacToeGame ticTacToeGame = new TicTacToeGame(
-                new BoardPrint(converterCell),
-                new MoveAl(),
-                new PlayerMove(converterCell),
-                new CheckWinner(),
-                new CellDraw());
-        ticTacToeGame.tictactoePlay();
-
-    }
+    void toMove(PlayingField playingField);
 }
