@@ -62,32 +62,32 @@ public class TicTacToeGame {
         MoveOn[] moveOn = {playerMove, moveAl};
 
         while (true) {
-            boolean flag = false;
             for (final MoveOn mv : moveOn) {
                 mv.toMove(playingField);
+                boardPrint.currentStateField(playingField);
                 if (mv instanceof PlayerMove) {
-                    boardPrint.currentStateField(playingField);
                     if (checkWinner.isUserWin(playingField)) {
                         System.out.println("YOU WIN!");
-                        flag = true;
+                        gameOver();
+                        return;
                     }
                 } else {
                     if (checkWinner.isAlWin(playingField)) {
                         System.out.println("COMPUTER WIN!");
-                        flag = true;
+                        gameOver();
+                        return;
                     }
                 }
                 if (cellDraw.CellFilled(playingField)) {
                     System.out.println("SORRY DRAW!");
-                    break;
+                    gameOver();
+                    return;
                 }
             }
-            if (flag) {
-                break;
-            }
         }
+    }
+
+    public static void gameOver() {
         System.out.println("GAME OVER!");
-
-
     }
 }
