@@ -16,7 +16,6 @@
 
 package academy.devonline.tictactoe.logic;
 
-import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
@@ -26,7 +25,7 @@ import static academy.devonline.tictactoe.model_data.Transfers.X;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
+ * @link <a href="https://www.udemy.com/course/java-junior-developer/">java-junior-developer</a>
  */
 public class PlayerMove {
 

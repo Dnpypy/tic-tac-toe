@@ -22,7 +22,7 @@ import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
+ * @link <a href="https://www.udemy.com/course/java-junior-developer/">java-junior-developer</a>
  */
 public class BoardPrint {
 
@@ -34,26 +34,27 @@ public class BoardPrint {
 
 
     public void showTablePrint() {
+        show((i, j) -> String.valueOf(converterCell.cellToNumb(new CellTable(i, j))));
+    }
+
+    public void currentStateField(final PlayingField playingField) {
+        show((i, j) -> String.valueOf(playingField.checkGetSymbol(new CellTable(i, j))));
+
+    }
+
+    private void show(final Lambda lambda) {
         for (int i = 0; i < 3; i++) {
             System.out.println("-------------");
             for (int j = 0; j < 3; j++) {
-                System.out.print("| " + converterCell.cellToNumb(new CellTable(i, j)) + " ");
+                System.out.print("| " + lambda.getValue(i, j) + " ");
             }
             System.out.println("|");
         }
         System.out.println("-------------");
     }
 
-    public void currentStateField(final PlayingField playingField) {
-
-        for (int i = 0; i < 3; i++) {
-            System.out.println("-------------");
-            for (int j = 0; j < 3; j++) {
-                System.out.print("| " + playingField.checkGetSymbol(new CellTable(i, j)) + " ");
-            }
-            System.out.println("|");
-        }
-        System.out.println("-------------");
-
+    @FunctionalInterface
+    private interface Lambda {
+        String getValue(int i, int j);
     }
 }
