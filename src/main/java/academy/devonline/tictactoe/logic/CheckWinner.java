@@ -17,33 +17,21 @@
 package academy.devonline.tictactoe.logic;
 
 import academy.devonline.tictactoe.model_data.CellTable;
+import academy.devonline.tictactoe.model_data.PlayerXO;
 import academy.devonline.tictactoe.model_data.PlayingField;
 import academy.devonline.tictactoe.model_data.Transfers;
-
-import static academy.devonline.tictactoe.model_data.Transfers.O;
-import static academy.devonline.tictactoe.model_data.Transfers.X;
 
 /**
  * @author Dnpypy
  */
 public class CheckWinner {
 
-    Transfers transfers;
-
-    public boolean isUserWin(PlayingField playingField) {
-        return isWin(playingField, X);
-    }
-
-    public boolean isAlWin(PlayingField playingField) {
-        return isWin(playingField, O);
-    }
-
     // checkingStatus
-    private static boolean isWin(PlayingField playingField, Transfers character) {
-        if (isWinRow(playingField, character)) return true;
-        if (isWinColumn(playingField, character)) return true;
-        if (isWinMainDiagonal(playingField, character)) return true;
-        return isWinSecondDiagonal(playingField, character);
+    public boolean isWin(PlayingField playingField, PlayerXO player) {
+        if (isWinRow(playingField, player.getTransfers())) return true;
+        if (isWinColumn(playingField, player.getTransfers())) return true;
+        if (isWinMainDiagonal(playingField, player.getTransfers())) return true;
+        return isWinSecondDiagonal(playingField, player.getTransfers());
     }
 
     private static boolean isWinMainDiagonal(PlayingField playingField, Transfers character) {

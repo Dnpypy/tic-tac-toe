@@ -18,6 +18,7 @@ package academy.devonline.tictactoe.logic;
 
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
+import academy.devonline.tictactoe.model_data.Transfers;
 
 import java.util.Random;
 
@@ -38,7 +39,7 @@ public class MoveAl implements MoveOn {
      *                     Если игровое поле заполнено то выход из цикла
      */
     @Override
-    public void toMove(PlayingField playingField) {
+    public void toMove(PlayingField playingField, final Transfers transfers) {
         final Random random = new Random();
 
         while (true) {
@@ -47,7 +48,7 @@ public class MoveAl implements MoveOn {
             final CellTable randomCellTable = new CellTable(row, col);
 
             if (playingField.isCharWhitespace(randomCellTable)) {
-                playingField.setTableSymbol(randomCellTable, O);
+                playingField.setTableSymbol(randomCellTable, transfers);
                 return;
             }
         }

@@ -18,6 +18,7 @@ package academy.devonline.tictactoe.logic;
 
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
+import academy.devonline.tictactoe.model_data.Transfers;
 
 import java.util.Scanner;
 
@@ -41,15 +42,14 @@ public class PlayerMove implements MoveOn {
      * проверяет пустая ли ячейка, если пустая, то ставлю в нее кректик 'X'
      *
      * @param playingField игровое поле
-     *
      */
     @Override
-    public void toMove(PlayingField playingField) {
+    public void toMove(final PlayingField playingField, final Transfers transfers) {
 
         while (true) {
             final CellTable cellSymbol = userInputFromKeyboard();
             if (playingField.isCharWhitespace(cellSymbol)) {
-                playingField.setTableSymbol(cellSymbol, X);
+                playingField.setTableSymbol(cellSymbol, transfers);
                 return;
             } else {
                 System.out.println("Can't make a move, because the cell is not free! Try again!");

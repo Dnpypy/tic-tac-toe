@@ -16,9 +16,13 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.model_data.PlayerXO;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
 import java.util.Random;
+
+import static academy.devonline.tictactoe.model_data.Transfers.O;
+import static academy.devonline.tictactoe.model_data.Transfers.X;
 
 /**
  * @author Dnpypy
@@ -53,35 +57,30 @@ public class TicTacToeGame {
 
         final PlayingField playingField = new PlayingField();
 
-        if (random.nextBoolean()) { // если первым ходит компьютер
-            moveAl.toMove(playingField);
-            boardPrint.currentStateField(playingField);
-        }
+//        if (random.nextBoolean()) { // если первым ходит компьютер
+//            moveAl.toMove(playingField);
+//            boardPrint.currentStateField(playingField);
+//        }
 
-        MoveOn[] moveOn = {playerMove, moveAl};
-
+        final PlayerXO[] playerXO = {new PlayerXO(O, playerMove), new PlayerXO(X, moveAl)};
         while (true) {
-            for (final MoveOn mv : moveOn) {
-                mv.toMove(playingField);
+            for (PlayerXO player : playerXO) {
+                player.makeToMove(playingField);
                 boardPrint.currentStateField(playingField);
-                if (mv instanceof PlayerMove) {
-                    if (checkWinner.isUserWin(playingField)) {
-                        System.out.println("YOU WIN!");
-                        gameOver();
-                        return;
-                    }
-                } else {
-                    if (checkWinner.isAlWin(playingField)) {
-                        System.out.println("COMPUTER WIN!");
-                        gameOver();
-                        return;
-                    }
+
+                if (checkWinner.isWin(playingField, player)) {
+                    System.out.println(player + " WIN!");
+                    gameOver();
+                    return;
+
                 }
+
                 if (cellDraw.CellFilled(playingField)) {
                     System.out.println("SORRY DRAW!");
                     gameOver();
                     return;
                 }
+
             }
         }
     }

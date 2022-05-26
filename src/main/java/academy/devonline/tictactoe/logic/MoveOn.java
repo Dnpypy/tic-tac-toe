@@ -17,11 +17,12 @@
 package academy.devonline.tictactoe.logic;
 
 import academy.devonline.tictactoe.model_data.PlayingField;
+import academy.devonline.tictactoe.model_data.Transfers;
 
 /**
  * @author Dnpypy
  */
 public interface MoveOn {
 
-    void toMove(PlayingField playingField);
+    void toMove(PlayingField playingField, Transfers transfers);
 }
