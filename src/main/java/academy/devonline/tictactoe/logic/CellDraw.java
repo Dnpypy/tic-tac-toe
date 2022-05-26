@@ -21,7 +21,6 @@ import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
  */
 public class CellDraw {
 

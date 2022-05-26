@@ -25,8 +25,7 @@ import static academy.devonline.tictactoe.model_data.Transfers.O;
 
 /**
  * @author Dnpypy
- * @link <a href="https://www.udemy.com/course/java-junior-developer/">java-junior-developer</a>
- */
+  */
 
 public class MoveAl implements MoveOn {
 

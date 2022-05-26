@@ -18,7 +18,6 @@ package academy.devonline.tictactoe.model_data;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
  */
 public class CellTable {
 

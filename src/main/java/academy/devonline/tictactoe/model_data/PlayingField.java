@@ -22,7 +22,6 @@ import static academy.devonline.tictactoe.model_data.Transfers.EMPTY;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
  */
 public class PlayingField {
 
