@@ -21,33 +21,28 @@ import academy.devonline.tictactoe.model_data.PlayingField;
 
 import java.util.Random;
 
-import static academy.devonline.tictactoe.model_data.Transfers.O;
-import static academy.devonline.tictactoe.model_data.Transfers.X;
-
 /**
  * @author Dnpypy
  */
 public class TicTacToeGame {
 
     private final BoardPrint boardPrint;
-    private final MoveAl moveAl;
-    private final PlayerMove playerMove;
+
+    private final PlayerXO player1;
+    private final PlayerXO player2;
     private final CheckWinner checkWinner;
     private final CellDraw cellDraw;
 
+    private final boolean moveSecondPlayer;
 
-    public TicTacToeGame(final BoardPrint boardPrint,
-                         final MoveAl moveAl,
-                         final PlayerMove playerMove,
-                         final CheckWinner checkWinner,
-                         final CellDraw cellDraw) {
+    public TicTacToeGame(BoardPrint boardPrint, PlayerXO player1, PlayerXO player2, CheckWinner checkWinner, CellDraw cellDraw, boolean moveSecondPlayer) {
         this.boardPrint = boardPrint;
-        this.moveAl = moveAl;
-        this.playerMove = playerMove;
+        this.player1 = player1;
+        this.player2 = player2;
         this.checkWinner = checkWinner;
         this.cellDraw = cellDraw;
+        this.moveSecondPlayer = moveSecondPlayer;
     }
-
 
     public void tictactoePlay() {
 
@@ -57,12 +52,12 @@ public class TicTacToeGame {
 
         final PlayingField playingField = new PlayingField();
 
-//        if (random.nextBoolean()) { // если первым ходит компьютер
-//            moveAl.toMove(playingField);
-//            boardPrint.currentStateField(playingField);
-//        }
+        if (moveSecondPlayer && random.nextBoolean()) {
+            player2.makeToMove(playingField);
+            boardPrint.currentStateField(playingField);
+        }
 
-        final PlayerXO[] playerXO = {new PlayerXO(O, playerMove), new PlayerXO(X, moveAl)};
+        final PlayerXO[] playerXO = {player1, player2};
         while (true) {
             for (PlayerXO player : playerXO) {
                 player.makeToMove(playingField);

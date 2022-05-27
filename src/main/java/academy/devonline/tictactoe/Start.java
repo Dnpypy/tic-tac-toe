@@ -17,25 +17,27 @@
 package academy.devonline.tictactoe;
 
 
-import academy.devonline.tictactoe.logic.BoardPrint;
 import academy.devonline.tictactoe.logic.*;
-import academy.devonline.tictactoe.logic.ConverterCell;
-import academy.devonline.tictactoe.logic.keypad.CellNumKeyTerminal;
 import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
+import academy.devonline.tictactoe.model_data.PlayerXO;
+
+import static academy.devonline.tictactoe.model_data.Transfers.O;
+import static academy.devonline.tictactoe.model_data.Transfers.X;
 
 /**
  * @author Dnpypy
  */
 public class Start {
     public static void main(String[] args) {
-        final ConverterCell converterCell = new CellNumKeyTerminal();
+        final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
 
         TicTacToeGame ticTacToeGame = new TicTacToeGame(
                 new BoardPrint(converterCell),
-                new MoveAl(),
-                new PlayerMove(converterCell),
+                new PlayerXO(X, new PlayerMove(converterCell)),
+                new PlayerXO(O, new MoveAl()),
                 new CheckWinner(),
-                new CellDraw());
+                new CellDraw(),
+                false);
         ticTacToeGame.tictactoePlay();
 
     }
