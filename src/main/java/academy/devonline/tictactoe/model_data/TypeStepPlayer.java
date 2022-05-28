@@ -14,21 +14,14 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
-
-
-import academy.devonline.tictactoe.logic.FactoryCreateGame;
-import academy.devonline.tictactoe.logic.TicTacToeGame;
+package academy.devonline.tictactoe.model_data;
 
 /**
  * @author Dnpypy
  */
-public class Start {
-    public static void main(final String[] args) {
-        final FactoryCreateGame factoryCreateGame = new FactoryCreateGame(args);
-        final TicTacToeGame game = factoryCreateGame.gameCreate();
-        game.tictactoePlay();
+public enum TypeStepPlayer {
 
+    USER,
 
-    }
+    COMPUTER
 }
