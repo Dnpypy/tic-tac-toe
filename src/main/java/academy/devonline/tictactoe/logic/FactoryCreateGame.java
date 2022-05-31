@@ -22,7 +22,6 @@ import academy.devonline.tictactoe.model_data.TypeStepPlayer;
 
 import static academy.devonline.tictactoe.model_data.Transfers.O;
 import static academy.devonline.tictactoe.model_data.Transfers.X;
-import static academy.devonline.tictactoe.model_data.TypeStepPlayer.COMPUTER;
 import static academy.devonline.tictactoe.model_data.TypeStepPlayer.USER;
 
 /**
@@ -42,35 +41,16 @@ public class FactoryCreateGame {
      * @param args аргументы командной строки
      */
     public FactoryCreateGame(final String[] args) {
-        TypeStepPlayer playerType1 = null;
-        TypeStepPlayer playerType2 = null;
-        for (String arg : args) {
-            if (USER.name().equalsIgnoreCase(arg) || COMPUTER.name().equalsIgnoreCase(arg)) {
-                if (playerType1 == null) {
-                    playerType1 = TypeStepPlayer.valueOf(arg.toUpperCase());
-                } else if (playerType2 == null) {
-                    playerType2 = TypeStepPlayer.valueOf(arg.toUpperCase());
-                } else {
-                    System.err.println("Unsupported command line argument: '" + arg + "'");
-                }
-            } else {
-                System.err.println("Unsupported command line argument: '" + arg + "'");
-            }
-        }
-        if (playerType1 == null) {
-            this.playerType1 = USER;
-            this.playerType2 = COMPUTER;
-        } else if (playerType2 == null) {
-            this.playerType1 = USER;
-            this.playerType2 = playerType1;
-        } else {
-            this.playerType1 = playerType1;
-            this.playerType2 = playerType2;
-        }
+
+        final ParserLineArgument.TypePlayers playersTypes = new ParserLineArgument(args).parsing();
+
+        this.playerType1 = playersTypes.getPlayerType1();
+        this.playerType2 = playersTypes.getPlayerType2();
+
     }
 
     /**
-     * метод который создает игру
+     * метод который создает игру(конфигурирует объект игры)
      */
     public TicTacToeGame gameCreate() {
         final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
