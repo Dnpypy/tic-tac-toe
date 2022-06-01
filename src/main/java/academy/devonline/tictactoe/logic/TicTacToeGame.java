@@ -26,7 +26,7 @@ import java.util.Random;
  */
 public class TicTacToeGame {
 
-    private final BoardPrint boardPrint;
+    private final BoardPrintImpl boardPrint;
 
     private final PlayerXO player1;
     private final PlayerXO player2;
@@ -35,7 +35,7 @@ public class TicTacToeGame {
 
     private final boolean moveSecondPlayer;
 
-    public TicTacToeGame(BoardPrint boardPrint, PlayerXO player1, PlayerXO player2, CheckWinner checkWinner, CellDraw cellDraw, boolean moveSecondPlayer) {
+    public TicTacToeGame(BoardPrintImpl boardPrint, PlayerXO player1, PlayerXO player2, CheckWinner checkWinner, CellDraw cellDraw, boolean moveSecondPlayer) {
         this.boardPrint = boardPrint;
         this.player1 = player1;
         this.player2 = player2;

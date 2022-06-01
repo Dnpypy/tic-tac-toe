@@ -14,22 +14,14 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe;
+package academy.devonline.tictactoe.component.console;
 
 import academy.devonline.tictactoe.model_data.CellTable;
 
 /**
  * @author Dnpypy
- * @link https://www.udemy.com/course/java-junior-developer/
  */
-public class Test {
-    public static void main(String[] args) {
-        int val = 3 - '0' - 1;
-        System.out.println(3 - '0');
-        System.out.println(val);
-        int a = val / 3;
-        int b = val % 3;
-        System.out.println((char) a);
-        System.out.println((char) b);
-    }
+public interface InputReadUser {
+
+    CellTable userInputFromKeyboard();
 }

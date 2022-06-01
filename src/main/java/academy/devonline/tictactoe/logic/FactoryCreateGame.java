@@ -69,7 +69,7 @@ public class FactoryCreateGame {
         }
         final boolean moveSecondPlayer = playerType1 != playerType2;
         return new TicTacToeGame(
-                new BoardPrint(converterCell),
+                new BoardPrintImpl(converterCell),
                 player1,
                 player2,
                 new CheckWinner(),

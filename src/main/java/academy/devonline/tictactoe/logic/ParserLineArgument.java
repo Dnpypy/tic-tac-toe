@@ -61,6 +61,9 @@ public class ParserLineArgument {
         }
     }
 
+    /**
+     * класс нужен в момент вызове в конструкторе класса FactoryCreateGame
+     */
     public static class TypePlayers {
         private final TypeStepPlayer playerType1;
 

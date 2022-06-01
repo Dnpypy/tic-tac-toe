@@ -16,18 +16,17 @@
 
 package academy.devonline.tictactoe.logic;
 
-import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
  */
-public class BoardPrint {
+public class BoardPrintImpl {
 
     private final ConverterCell converterCell;
 
-    public BoardPrint(ConverterCell converterCell) {
+    public BoardPrintImpl(ConverterCell converterCell) {
         this.converterCell = converterCell;
     }
 
