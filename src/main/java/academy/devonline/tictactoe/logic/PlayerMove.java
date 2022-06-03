@@ -20,22 +20,21 @@ import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 import academy.devonline.tictactoe.model_data.Transfers;
 
-import java.util.Scanner;
-
-import static academy.devonline.tictactoe.model_data.Transfers.X;
-
 /**
  * @author Dnpypy
  */
 public class PlayerMove implements MoveOn {
 
+    private final InputReadUser inputReadUser;
 
-    private final ConverterCell converterCell;
+    private final BoardPrint boardPrint;
 
-    public PlayerMove(ConverterCell converterCell) {
-        this.converterCell = converterCell;
+
+    public PlayerMove(final InputReadUser inputReadUser,
+                      final BoardPrint boardPrint) {
+        this.inputReadUser = inputReadUser;
+        this.boardPrint = boardPrint;
     }
-
 
     /**
      * выполняет ход пользователя
@@ -47,52 +46,14 @@ public class PlayerMove implements MoveOn {
     public void toMove(final PlayingField playingField, final Transfers transfers) {
 
         while (true) {
-            final CellTable cellSymbol = userInputFromKeyboard();
+            //final CellTable cellSymbol = userInputFromKeyboard();
+            final CellTable cellSymbol = inputReadUser.userInputFromKeyboard();
             if (playingField.isCharWhitespace(cellSymbol)) {
                 playingField.setTableSymbol(cellSymbol, transfers);
                 return;
             } else {
-                System.out.println("Can't make a move, because the cell is not free! Try again!");
+                boardPrint.errorNoticePrint("Can't make a move, because the cell is not free! Try again!");
             }
         }
     }
-
-    /**
-     * проверка символа на диапазон с 0 до 9
-     *
-     * @param character символ
-     * @return истину если символ входит в диапазон
-     */
-    public static boolean checkCharacter(char character) {
-        char c = '0';
-        while (c <= '9') {
-            if (c == character) {
-                return true;
-            }
-            c++;
-        }
-        return false;
-    }
-
-    /**
-     * пользователь вводит с клавиатуры цифру с 1 до 9
-     * из строки беру 1 символ и проверяю на диапазон
-     *
-     * @return объект ячейки (символ char)
-     */
-    private CellTable userInputFromKeyboard() {
-        while (true) {
-            System.out.println("Please type number between 1 and 9:");
-            Scanner sc = new Scanner(System.in);
-            String s = sc.nextLine();
-            if (s.length() == 1) {
-                char ch = s.charAt(0);
-                if (checkCharacter(ch)) {
-                    return converterCell.numbTocell(ch);
-                }
-            }
-        }
-
-    }
-
 }

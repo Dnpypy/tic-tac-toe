@@ -16,6 +16,8 @@
 
 package academy.devonline.tictactoe.logic;
 
+import academy.devonline.tictactoe.component.console.ConsoleBoardPrint;
+import academy.devonline.tictactoe.component.console.ConsoleInputReadUser;
 import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
 import academy.devonline.tictactoe.model_data.PlayerXO;
 import academy.devonline.tictactoe.model_data.TypeStepPlayer;
@@ -54,22 +56,25 @@ public class FactoryCreateGame {
      */
     public TicTacToeGame gameCreate() {
         final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
+        final BoardPrint boardPrint = new ConsoleBoardPrint(converterCell);
+        final InputReadUser inputReadUser = new ConsoleInputReadUser(converterCell, boardPrint);
+
         final PlayerXO player1;
         if (playerType1 == USER) {
-            player1 = new PlayerXO(X, new PlayerMove(converterCell));
+            player1 = new PlayerXO(X, new PlayerMove(inputReadUser, boardPrint));
         } else {
             player1 = new PlayerXO(X, new MoveAl());
         }
 
         final PlayerXO player2;
         if (playerType2 == USER) {
-            player2 = new PlayerXO(O, new PlayerMove(converterCell));
+            player2 = new PlayerXO(O, new PlayerMove(inputReadUser, boardPrint));
         } else {
             player2 = new PlayerXO(O, new MoveAl());
         }
         final boolean moveSecondPlayer = playerType1 != playerType2;
         return new TicTacToeGame(
-                new BoardPrintImpl(converterCell),
+                boardPrint,
                 player1,
                 player2,
                 new CheckWinner(),

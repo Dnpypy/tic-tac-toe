@@ -26,7 +26,7 @@ import java.util.Random;
  */
 public class TicTacToeGame {
 
-    private final BoardPrintImpl boardPrint;
+    private final BoardPrint boardPrint;
 
     private final PlayerXO player1;
     private final PlayerXO player2;
@@ -35,7 +35,7 @@ public class TicTacToeGame {
 
     private final boolean moveSecondPlayer;
 
-    public TicTacToeGame(BoardPrintImpl boardPrint, PlayerXO player1, PlayerXO player2, CheckWinner checkWinner, CellDraw cellDraw, boolean moveSecondPlayer) {
+    public TicTacToeGame(BoardPrint boardPrint, PlayerXO player1, PlayerXO player2, CheckWinner checkWinner, CellDraw cellDraw, boolean moveSecondPlayer) {
         this.boardPrint = boardPrint;
         this.player1 = player1;
         this.player2 = player2;
@@ -45,8 +45,7 @@ public class TicTacToeGame {
     }
 
     public void tictactoePlay() {
-
-        System.out.println("Use the following mapping table to specify a cell using numbers from 1 to 9:");
+        boardPrint.infoNoticePrint("Use the following mapping table to specify a cell using numbers from 1 to 9:");
         boardPrint.showTablePrint();
         Random random = new Random();
 
@@ -64,14 +63,14 @@ public class TicTacToeGame {
                 boardPrint.currentStateField(playingField);
 
                 if (checkWinner.isWin(playingField, player)) {
-                    System.out.println(player + " WIN!");
+                    boardPrint.infoNoticePrint(player + " WIN!");
                     gameOver();
                     return;
 
                 }
 
                 if (cellDraw.CellFilled(playingField)) {
-                    System.out.println("SORRY DRAW!");
+                    boardPrint.infoNoticePrint("SORRY DRAW!");
                     gameOver();
                     return;
                 }
@@ -80,7 +79,7 @@ public class TicTacToeGame {
         }
     }
 
-    public static void gameOver() {
-        System.out.println("GAME OVER!");
+    public void gameOver() {
+        boardPrint.infoNoticePrint("GAME OVER!");
     }
 }
