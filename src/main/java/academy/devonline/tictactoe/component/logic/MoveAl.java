@@ -14,15 +14,13 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.logic;
+package academy.devonline.tictactoe.component.logic;
 
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 import academy.devonline.tictactoe.model_data.Transfers;
 
 import java.util.Random;
-
-import static academy.devonline.tictactoe.model_data.Transfers.O;
 
 /**
  * @author Dnpypy

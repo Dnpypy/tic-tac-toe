@@ -17,8 +17,8 @@
 package academy.devonline.tictactoe;
 
 
-import academy.devonline.tictactoe.logic.FactoryCreateGame;
-import academy.devonline.tictactoe.logic.TicTacToeGame;
+import academy.devonline.tictactoe.component.logic.FactoryCreateGame;
+import academy.devonline.tictactoe.component.logic.TicTacToeGame;
 
 /**
  * @author Dnpypy

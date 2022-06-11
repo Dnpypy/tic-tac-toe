@@ -14,11 +14,12 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.logic;
+package academy.devonline.tictactoe.component.logic;
 
 import academy.devonline.tictactoe.component.console.ConsoleBoardPrint;
 import academy.devonline.tictactoe.component.console.ConsoleInputReadUser;
-import academy.devonline.tictactoe.logic.keypad.NumKeyCellNumbConvertDesktop;
+import academy.devonline.tictactoe.component.keypad.NumKeyCellNumbConvertDesktop;
+import academy.devonline.tictactoe.component.swing.WindowSwingGame;
 import academy.devonline.tictactoe.model_data.PlayerXO;
 import academy.devonline.tictactoe.model_data.TypeStepPlayer;
 
@@ -53,11 +54,19 @@ public class FactoryCreateGame {
 
     /**
      * метод который создает игру(конфигурирует объект игры)
+     * Консольный вид игры или графический
      */
     public TicTacToeGame gameCreate() {
-        final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
-        final BoardPrint boardPrint = new ConsoleBoardPrint(converterCell);
-        final InputReadUser inputReadUser = new ConsoleInputReadUser(converterCell, boardPrint);
+
+        //графический интерфейс
+        final WindowSwingGame windowSwingGame = new WindowSwingGame();
+        final BoardPrint boardPrint = windowSwingGame;
+        final InputReadUser inputReadUser = windowSwingGame;
+
+        // консольный интерфейс
+//        final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
+//        final BoardPrint boardPrint = new ConsoleBoardPrint(converterCell);
+//        final InputReadUser inputReadUser = new ConsoleInputReadUser(converterCell, boardPrint);
 
         final PlayerXO player1;
         if (playerType1 == USER) {

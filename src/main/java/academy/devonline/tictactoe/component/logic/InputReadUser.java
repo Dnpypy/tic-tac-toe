@@ -14,15 +14,14 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.logic;
+package academy.devonline.tictactoe.component.logic;
 
-import academy.devonline.tictactoe.model_data.PlayingField;
-import academy.devonline.tictactoe.model_data.Transfers;
+import academy.devonline.tictactoe.model_data.CellTable;
 
 /**
  * @author Dnpypy
  */
-public interface MoveOn {
+public interface InputReadUser {
 
-    void toMove(PlayingField playingField, Transfers transfers);
+    CellTable userInputFromKeyboard();
 }

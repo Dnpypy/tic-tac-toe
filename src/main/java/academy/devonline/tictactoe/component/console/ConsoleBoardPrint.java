@@ -16,8 +16,8 @@
 
 package academy.devonline.tictactoe.component.console;
 
-import academy.devonline.tictactoe.logic.BoardPrint;
-import academy.devonline.tictactoe.logic.ConverterCell;
+import academy.devonline.tictactoe.component.logic.BoardPrint;
+import academy.devonline.tictactoe.component.logic.ConverterCell;
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
 

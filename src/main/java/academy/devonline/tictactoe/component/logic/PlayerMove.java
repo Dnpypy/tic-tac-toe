@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.logic;
+package academy.devonline.tictactoe.component.logic;
 
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;

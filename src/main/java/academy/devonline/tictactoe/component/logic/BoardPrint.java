@@ -14,14 +14,28 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.logic;
+package academy.devonline.tictactoe.component.logic;
 
-import academy.devonline.tictactoe.model_data.CellTable;
+import academy.devonline.tictactoe.model_data.PlayingField;
 
 /**
  * @author Dnpypy
  */
-public interface InputReadUser {
+public interface BoardPrint {
 
-    CellTable userInputFromKeyboard();
+    /**
+     * выводит информационное сообщение
+     *
+     * @param message хранит сообщение, которое нужно вывезти
+     */
+    void infoNoticePrint(String message);
+
+    /**
+     * Выводит сообщение об ошибке
+     */
+    void errorNoticePrint(String message);
+
+    void showTablePrint();
+
+    void currentStateField(final PlayingField playingField);
 }

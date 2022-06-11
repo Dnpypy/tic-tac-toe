@@ -14,7 +14,7 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.logic;
+package academy.devonline.tictactoe.component.logic;
 
 import academy.devonline.tictactoe.model_data.CellTable;
 import academy.devonline.tictactoe.model_data.PlayingField;
@@ -22,37 +22,18 @@ import academy.devonline.tictactoe.model_data.PlayingField;
 /**
  * @author Dnpypy
  */
-public class BoardPrintImpl {
+public class CellDraw {
 
-    private final ConverterCell converterCell;
-
-    public BoardPrintImpl(ConverterCell converterCell) {
-        this.converterCell = converterCell;
-    }
-
-
-    public void showTablePrint() {
-        show((i, j) -> String.valueOf(converterCell.cellToNumb(new CellTable(i, j))));
-    }
-
-    public void currentStateField(final PlayingField playingField) {
-        show((i, j) -> String.valueOf(playingField.checkGetSymbol(new CellTable(i, j))));
-
-    }
-
-    private void show(final Lambda lambda) {
+    public boolean CellFilled(final PlayingField playingField) {
         for (int i = 0; i < 3; i++) {
-            System.out.println("-------------");
             for (int j = 0; j < 3; j++) {
-                System.out.print("| " + lambda.getValue(i, j) + " ");
+                if (playingField.isCharWhitespace(new CellTable(i, j))) {
+                    return false;
+                }
             }
-            System.out.println("|");
         }
-        System.out.println("-------------");
+        return true;
     }
 
-    @FunctionalInterface
-    private interface Lambda {
-        String getValue(int i, int j);
-    }
+
 }

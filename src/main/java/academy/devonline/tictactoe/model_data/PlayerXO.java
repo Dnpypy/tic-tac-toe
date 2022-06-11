@@ -16,7 +16,7 @@
 
 package academy.devonline.tictactoe.model_data;
 
-import academy.devonline.tictactoe.logic.MoveOn;
+import academy.devonline.tictactoe.component.logic.MoveOn;
 
 /**
  * @author Dnpypy

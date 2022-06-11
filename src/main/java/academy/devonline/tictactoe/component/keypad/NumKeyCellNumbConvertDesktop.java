@@ -14,9 +14,9 @@
  *    limitations under the License.
  */
 
-package academy.devonline.tictactoe.logic.keypad;
+package academy.devonline.tictactoe.component.keypad;
 
-import academy.devonline.tictactoe.logic.ConverterCell;
+import academy.devonline.tictactoe.component.logic.ConverterCell;
 import academy.devonline.tictactoe.model_data.CellTable;
 
 /**
