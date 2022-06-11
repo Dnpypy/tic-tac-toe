@@ -128,7 +128,4 @@ public class WindowSwingGame extends JFrame implements BoardPrint, InputReadUser
         return clickedCell;
     }
 
-//    public static void main(String[] args) {
-//        new WindowSwingGame();
-//    }
 }
