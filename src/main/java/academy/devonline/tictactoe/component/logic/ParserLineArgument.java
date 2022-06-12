@@ -16,8 +16,11 @@
 
 package academy.devonline.tictactoe.component.logic;
 
+import academy.devonline.tictactoe.model_data.InterfUser;
 import academy.devonline.tictactoe.model_data.TypeStepPlayer;
 
+import static academy.devonline.tictactoe.model_data.InterfUser.CONSOLE;
+import static academy.devonline.tictactoe.model_data.InterfUser.GUI;
 import static academy.devonline.tictactoe.model_data.TypeStepPlayer.COMPUTER;
 import static academy.devonline.tictactoe.model_data.TypeStepPlayer.USER;
 
@@ -36,9 +39,11 @@ public class ParserLineArgument {
     /**
      * парсит аргументы args и возвращает два объекта класса TypePlayers
      */
-    public TypePlayers parsing() {
+    public CommandLineStepPLayer parsing() {
         TypeStepPlayer playerType1 = null;
         TypeStepPlayer playerType2 = null;
+        InterfUser interfUser = null;
+
         for (String arg : args) {
             if (USER.name().equalsIgnoreCase(arg) || COMPUTER.name().equalsIgnoreCase(arg)) {
                 if (playerType1 == null) {
@@ -48,30 +53,46 @@ public class ParserLineArgument {
                 } else {
                     System.err.println("Unsupported command line argument: '" + arg + "'");
                 }
-            } else {
+            } else if (GUI.name().equalsIgnoreCase(arg) || CONSOLE.name().equalsIgnoreCase(arg)) {
+                if (interfUser == null) {
+                    interfUser = InterfUser.valueOf(arg.toUpperCase());
+                } else {
+                    System.err.println("Unsupported command line argument: '" + arg + "'");
+                }
+            }else {
                 System.err.println("Unsupported command line argument: '" + arg + "'");
             }
         }
+
+        if(interfUser == null) {
+            interfUser = CONSOLE;
+        }
+
         if (playerType1 == null) {
-            return new TypePlayers(USER, COMPUTER);
+            return new CommandLineStepPLayer(USER, COMPUTER, interfUser);
         } else if (playerType2 == null) {
-            return new TypePlayers(USER, playerType1);
+            return new CommandLineStepPLayer(USER, playerType1, interfUser);
         } else {
-            return new TypePlayers(playerType1, playerType2);
+            return new CommandLineStepPLayer(playerType1, playerType2, interfUser);
         }
     }
 
     /**
      * класс нужен в момент вызове в конструкторе класса FactoryCreateGame
      */
-    public static class TypePlayers {
+    public static class CommandLineStepPLayer {
         private final TypeStepPlayer playerType1;
 
         private final TypeStepPlayer playerType2;
 
-        private TypePlayers(final TypeStepPlayer playerType1, final TypeStepPlayer playerType2) {
+        private final InterfUser interfUser;
+
+        private CommandLineStepPLayer(final TypeStepPlayer playerType1,
+                                      final TypeStepPlayer playerType2,
+                                      final InterfUser interfUser) {
             this.playerType1 = playerType1;
             this.playerType2 = playerType2;
+            this.interfUser = interfUser;
         }
 
         public TypeStepPlayer getPlayerType1() {
@@ -80,6 +101,10 @@ public class ParserLineArgument {
 
         public TypeStepPlayer getPlayerType2() {
             return playerType2;
+        }
+
+        public InterfUser getInterfUser() {
+            return interfUser;
         }
     }
 }

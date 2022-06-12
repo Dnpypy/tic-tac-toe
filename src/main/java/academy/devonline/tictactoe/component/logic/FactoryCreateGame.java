@@ -20,6 +20,7 @@ import academy.devonline.tictactoe.component.console.ConsoleBoardPrint;
 import academy.devonline.tictactoe.component.console.ConsoleInputReadUser;
 import academy.devonline.tictactoe.component.keypad.NumKeyCellNumbConvertDesktop;
 import academy.devonline.tictactoe.component.swing.WindowSwingGame;
+import academy.devonline.tictactoe.model_data.InterfUser;
 import academy.devonline.tictactoe.model_data.PlayerXO;
 import academy.devonline.tictactoe.model_data.TypeStepPlayer;
 
@@ -36,6 +37,8 @@ public class FactoryCreateGame {
 
     private final TypeStepPlayer playerType2;
 
+    private final InterfUser interfUser;
+
 
     /**
      * конструктор считывает аргументы командной строки и
@@ -45,11 +48,11 @@ public class FactoryCreateGame {
      */
     public FactoryCreateGame(final String[] args) {
 
-        final ParserLineArgument.TypePlayers playersTypes = new ParserLineArgument(args).parsing();
+        final ParserLineArgument.CommandLineStepPLayer playersTypes = new ParserLineArgument(args).parsing();
 
-        this.playerType1 = playersTypes.getPlayerType1();
-        this.playerType2 = playersTypes.getPlayerType2();
-
+        playerType1 = playersTypes.getPlayerType1();
+        playerType2 = playersTypes.getPlayerType2();
+        interfUser = playersTypes.getInterfUser();
     }
 
     /**
@@ -58,12 +61,23 @@ public class FactoryCreateGame {
      */
     public TicTacToeGame gameCreate() {
 
-        //графический интерфейс
-        final WindowSwingGame windowSwingGame = new WindowSwingGame();
-        final BoardPrint boardPrint = windowSwingGame;
-        final InputReadUser inputReadUser = windowSwingGame;
 
-        // консольный интерфейс
+
+        final BoardPrint boardPrint;
+        final InputReadUser inputReadUser;
+
+        //графический интерфейс или консольный интерфейс
+
+        if (interfUser == InterfUser.GUI) {
+            final WindowSwingGame windowSwingGame = new WindowSwingGame();
+            boardPrint = windowSwingGame;
+            inputReadUser = windowSwingGame;
+        } else {
+            final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
+            boardPrint = new ConsoleBoardPrint(converterCell);
+            inputReadUser = new ConsoleInputReadUser(converterCell, boardPrint);;
+        }
+
 //        final ConverterCell converterCell = new NumKeyCellNumbConvertDesktop();
 //        final BoardPrint boardPrint = new ConsoleBoardPrint(converterCell);
 //        final InputReadUser inputReadUser = new ConsoleInputReadUser(converterCell, boardPrint);
